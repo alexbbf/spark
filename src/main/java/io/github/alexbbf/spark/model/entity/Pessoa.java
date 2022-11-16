@@ -1,5 +1,6 @@
 package io.github.alexbbf.spark.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Pessoa {
     private String cpf;
 
     @Column(name = "data_nascimento")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
     @OneToOne(cascade = CascadeType.ALL)

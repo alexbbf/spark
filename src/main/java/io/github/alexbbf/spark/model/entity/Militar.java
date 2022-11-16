@@ -31,16 +31,14 @@ public class Militar {
     private Rg rg;
 
     @ManyToOne
-    @Column(name = "posto_graduacao_id")
+    @JoinColumn(name = "posto_graduacao_id")
     private PostoGraduacao postoGraduacao;
 
     @ManyToOne
-    @Column(name = "quadro_id")
+    @JoinColumn(name = "quadro_id")
     private Quadro quadro;
 
-    @ManyToOne
-
-    @Column(name = "data_nascimento")
+     @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
 
 
