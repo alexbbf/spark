@@ -1,6 +1,7 @@
 package io.github.alexbbf.spark.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -38,10 +39,17 @@ public class Militar {
     @JoinColumn(name = "quadro_id")
     private Quadro quadro;
 
-     @Column(name = "data_nascimento")
+    @Column(name = "data_nascimento")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
+    @Column(name = "data_cadastro")
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate dataCadastro;
 
-
+    @PrePersist
+    public void prePersist(){
+        setDataCadastro(LocalDate.now());
+    }
 
 }
