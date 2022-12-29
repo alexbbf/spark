@@ -27,6 +27,7 @@ public class Pessoa {
     private String cpf;
 
     @Column(name = "data_nascimento")
+    @NotNull(message = "{campo.dataNascimento.obrigatorio}")
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataNascimento;
 
