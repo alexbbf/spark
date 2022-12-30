@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/pessoas")
@@ -16,6 +17,11 @@ public class PessoaController {
 
     @Autowired
     private PessoaRepository repository;
+
+    @GetMapping
+    public List<Pessoa> obterTodos(){
+        return repository.findAll();
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
