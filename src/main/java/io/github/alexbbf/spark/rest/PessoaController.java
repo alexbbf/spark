@@ -50,7 +50,8 @@ public class PessoaController {
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void atualizar( @PathVariable Integer id, @RequestBody @Valid Pessoa pessoaAtualizada){
+    public void atualizar( @PathVariable Integer id,
+                           @RequestBody @Valid Pessoa pessoaAtualizada){
         repository
                 .findById(id).map(pessoa -> {
                     pessoaAtualizada.setId(pessoa.getId());
