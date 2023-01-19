@@ -22,6 +22,8 @@ public class MilitarController {
         return repository.findAll();
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public Militar salvar(@RequestBody @Valid Militar militar){
         return  repository.save(militar);
     }
