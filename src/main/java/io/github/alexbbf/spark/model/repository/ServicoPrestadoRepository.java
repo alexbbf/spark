@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ServicoPrestadoRepository extends JpaRepository<ServicoPrestado, Integer> {
     @Query("    SELECT s " +
-            "   FROM ServicoPrestado s JOIN s.cliente c " +
+            "   FROM ServicoPrestado s JOIN s.pessoa c " +
             "   WHERE UPPER(c.nome) LIKE UPPER(:nome) AND MONTH(s.data) = :mes")
     List<ServicoPrestado> findByNomeClienteAndMes(@Param("nome") String nome, @Param("mes") Integer mes);
 }
