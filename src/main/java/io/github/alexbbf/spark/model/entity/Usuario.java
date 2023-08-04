@@ -1,8 +1,11 @@
 package io.github.alexbbf.spark.model.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class Usuario {
 
     @Id
